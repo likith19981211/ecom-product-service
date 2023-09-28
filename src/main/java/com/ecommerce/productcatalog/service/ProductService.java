@@ -39,4 +39,14 @@ public class ProductService {
                 .price(product.getPrice())
                 .build();
     }
+
+    public void updateProduct(ProductRequest productRequest) {
+        Product product = new Product();
+        product = productRepository.findById(productRequest.getId()).get();
+        product.setName(productRequest.getName());
+        product.setDescription(product.getDescription());
+        product.setPrice(productRequest.getPrice());
+        productRepository.save(product);
+        log.info("product {} has been updated successfully", product.getId());
+    }
 }

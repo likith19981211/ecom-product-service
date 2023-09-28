@@ -22,6 +22,12 @@ public class ProductController {
         productService.createProduct(productRequest);
     }
 
+    @PutMapping
+    @ResponseStatus(HttpStatus.OK)
+    public void updateProduct(@RequestBody ProductRequest productRequest) {
+        productService.updateProduct(productRequest);
+    }
+
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<ProductResponse> getAllProducts(){
